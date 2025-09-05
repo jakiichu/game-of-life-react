@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@siberiacancode/reactuse": "^0.2.31",
     "@tailwindcss/vite": "^4.1.12",
     "es-toolkit": "^1.39.10",
     "mitt": "^3.0.1",
