@@ -6,12 +6,17 @@ import type {ITableState} from "@/bll/interface";
 
 const useTableStore = create<IStateMethods>((set, getState) => ({
     table: tableGenerator(20, 20),
-    changeTableItem: (id: string) => set((state) => {
+
+    changeTableItem: (id: string, changetValue?: boolean) => set((state) => {
+        const hasChange = changetValue !== undefined
+
         const resultToFloat = flatMapDeep(state.table, item => [item]);
         const newValue = resultToFloat.find(value => value.id === id) as ITableState
+
+
         resultToFloat.splice(resultToFloat.findIndex(value => value.id === id), 1, {
             ...newValue,
-            value: !newValue?.value
+            value: hasChange ? changetValue : !newValue?.value
         })
 
         return {

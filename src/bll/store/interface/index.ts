@@ -2,7 +2,7 @@ import type {IItems, ITableState} from "@/bll/interface";
 
 interface IStateMethods {
     table: IItems
-    changeTableItem: (id: string) => void
+    changeTableItem: (id: string, changeValue?: boolean) => void
     flatMap: () => ITableState[]
 }
 
