@@ -12,11 +12,11 @@
   "dependencies": {
     "@siberiacancode/reactuse": "^0.2.31",
     "@tailwindcss/vite": "^4.1.12",
+    "clsx": "^2.1.1",
     "es-toolkit": "^1.39.10",
     "mitt": "^3.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.12",
     "vite-tsconfig-paths": "^5.1.4",
     "zustand": "^5.0.8"
   },

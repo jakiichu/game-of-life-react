@@ -5,10 +5,12 @@ import {chunk, flatMapDeep} from "es-toolkit";
 import type {ITableState} from "@/bll/interface";
 
 const useTableStore = create<IStateMethods>((set, getState) => ({
+    tableSize: 20,
+    setTableSize: (value: number) => set(() => ({tableSize: value})),
     table: tableGenerator(20, 20),
 
-    changeTableItem: (id: string, changetValue?: boolean) => set((state) => {
-        const hasChange = changetValue !== undefined
+    changeTableItem: (id: string, changeValue?: boolean) => set((state) => {
+        const hasChange = changeValue !== undefined
 
         const resultToFloat = flatMapDeep(state.table, item => [item]);
         const newValue = resultToFloat.find(value => value.id === id) as ITableState
@@ -16,7 +18,7 @@ const useTableStore = create<IStateMethods>((set, getState) => ({
 
         resultToFloat.splice(resultToFloat.findIndex(value => value.id === id), 1, {
             ...newValue,
-            value: hasChange ? changetValue : !newValue?.value
+            value: hasChange ? changeValue : !newValue?.value
         })
 
         return {
