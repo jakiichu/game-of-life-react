@@ -22,7 +22,7 @@ const App = (): ReactNode => {
         gameRules(uniqGameFields).forEach(item => changeTableItem(item.id, item.value))
     }
 
-    const {toggle} = useInterval(callbackEngine, 1000, {immediately: false})
+    const {toggle} = useInterval(callbackEngine, 300, {immediately: false})
 
     return (
         <>
