@@ -1,0 +1,14 @@
+.panel {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    position: fixed;
+    bottom: 8px;
+    left: 40vw;
+    right: 40vw;
+
+}
+
+.toggleButton {
+
+}

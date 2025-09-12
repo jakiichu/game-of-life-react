@@ -6,6 +6,7 @@ import {flattenDeep, uniq} from "es-toolkit";
 import {fiendNeighbour} from "@/bll/functions/fiend-neighbour";
 import {gameRules} from "@/bll/functions/game-rules";
 import {concatItemToArray} from "@/bll/functions/concatItemToArray";
+import {FunctionPanel} from "@/ui/function-panel/core";
 
 
 const App = (): ReactNode => {
@@ -19,15 +20,16 @@ const App = (): ReactNode => {
 
 
     const callbackEngine = () => {
-        gameRules(uniqGameFields).forEach(item => changeTableItem(item.id, item.value))
+        changeTableItem(gameRules(uniqGameFields))
     }
 
-    const {toggle} = useInterval(callbackEngine, 300, {immediately: false})
+    const {toggle, active, resume, pause} = useInterval(callbackEngine, 300, {immediately: false})
 
     return (
         <>
-            <button className='main-button' onClick={toggle}>toggle</button>
-            <Table items={table}/>
+
+            <Table items={table} pause={pause} resume={resume}/>
+            <FunctionPanel toggle={toggle} isActive={active}></FunctionPanel>
         </>
     );
 };

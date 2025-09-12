@@ -1,6 +1,8 @@
 import type {ITableState} from "@/bll/interface";
 
-type ITableItemProps = ITableState
+interface ITableItemProps extends ITableState {
+    isMouseDown: boolean
+}
 
 export type {
     ITableItemProps
