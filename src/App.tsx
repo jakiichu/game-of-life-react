@@ -24,10 +24,8 @@ const App = (): ReactNode => {
     }
 
     const {toggle, active, resume, pause} = useInterval(callbackEngine, 300, {immediately: false})
-
     return (
         <>
-
             <Table items={table} pause={pause} resume={resume}/>
             <FunctionPanel toggle={toggle} isActive={active}></FunctionPanel>
         </>

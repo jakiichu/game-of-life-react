@@ -3,18 +3,24 @@ import type {ITableProps} from "../interface";
 import TableItem from "@/ui/table/ui/item/core";
 import style from '../style/table.module.css'
 
-const Table = ({items, pause, resume}: ITableProps): ReactNode => {
+const targetHtmlElementElement = (event: Event) => (event as MouseEvent).target as HTMLElement;
 
+
+const Table = ({items, pause, resume}: ITableProps): ReactNode => {
     const [isMouseDown, setIsMouseDown] = useState(false);
 
     useEffect(() => {
-        const handleMouseDown = () => {
-            setIsMouseDown(true);
-            pause()
+        const handleMouseDown = (e: Event) => {
+            if (targetHtmlElementElement(e)?.ariaLabel !== null) {
+                setIsMouseDown(true);
+                pause()
+            }
         }
-        const handleMouseUp = () => {
-            setIsMouseDown(false);
-            resume()
+        const handleMouseUp = (e: MouseEvent) => {
+            if (targetHtmlElementElement(e)?.ariaLabel !== null) {
+                setIsMouseDown(false);
+                resume()
+            }
         };
         window.addEventListener('mousedown', handleMouseDown);
         window.addEventListener('mouseup', handleMouseUp);

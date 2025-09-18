@@ -9,6 +9,7 @@ interface IFunctionPanelProps {
 }
 
 const FunctionPanel = ({isActive, toggle}: IFunctionPanelProps): ReactNode => {
+
     return (
         <GlassWrapper className={style.panel}>
             <button className='main-button' aria-checked={isActive}

@@ -21,6 +21,7 @@ const TableItem = ({value, id, isMouseDown}: ITableItemProps): ReactNode => {
 
     return (
         <button
+            aria-label='table-button'
             type="button"
             aria-checked={value}
             className={style.tableItem}
